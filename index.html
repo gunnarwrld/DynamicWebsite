@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Dynamic Website</h1>
+        <nav id="nav">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#posts" class="nav-link">Posts</a>
+            <a href="#profile" class="nav-link">Profile</a>
+        </nav>
+    </header>
+
+    <main id="app">
+        <!-- Home Section -->
+        <section id="home" class="page">
+            <article class="intro">
+                <h2>Welcome to Our Community Blog</h2>
+                <p>
+                    Explore posts from our vibrant community, discover interesting content, 
+                    and connect with amazing authors. Click on any post to read the full content 
+                    and join the conversation in the comments!
+                </p>
+                <details class="instructions">
+                    <summary>How to use this app</summary>
+                    <ul>
+                        <li><strong>Browse Posts:</strong> Scroll through the latest posts below</li>
+                        <li><strong>Read Details:</strong> Click on a post title to view the full content and comments</li>
+                        <li><strong>View Profiles:</strong> Click on an author's name to see their profile and all their posts</li>
+                        <li><strong>Navigate:</strong> Use the navigation menu above to switch between sections</li>
+                    </ul>
+                </details>
+            </article>
+
+            <h2>Latest Posts</h2>
+            <div id="posts-container"></div>
+        </section>
+
+        <!-- Post Detail Section -->
+        <section id="post-detail" class="page hidden">
+            <button id="back-btn">← Back</button>
+            <div id="post-content"></div>
+            <h3>Comments</h3>
+            <div id="comments-container"></div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="page hidden">
+            <button id="profile-back-btn">← Back</button>
+            <div id="profile-content"></div>
+            <h3>User Posts</h3>
+            <div id="user-posts-container"></div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
