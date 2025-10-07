@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Website</title>
+    <title>PostHub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header>
-        <h1>Dynamic Website</h1>
+        <h1>PostHub</h1>
         <nav id="nav">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#posts" class="nav-link">Posts</a>
-            <a href="#profile" class="nav-link">Profile</a>
+            <a href="#home" class="nav-link active" data-view="home">Home</a>
+            <a href="#posts" class="nav-link" data-view="posts">Posts</a>
+            <a href="#contact" class="nav-link" data-view="contact">Contact</a>
         </nav>
     </header>
 
@@ -30,16 +30,26 @@
                 <details class="instructions">
                     <summary>How to use this app</summary>
                     <ul>
-                        <li><strong>Browse Posts:</strong> Scroll through the latest posts below</li>
+                        <li><strong>Browse Posts:</strong> Navigate to the Posts page to view all posts</li>
                         <li><strong>Read Details:</strong> Click on a post title to view the full content and comments</li>
                         <li><strong>View Profiles:</strong> Click on an author's name to see their profile and all their posts</li>
                         <li><strong>Navigate:</strong> Use the navigation menu above to switch between sections</li>
                     </ul>
                 </details>
             </article>
+        </section>
 
+        <!-- Posts Section - All Posts Content -->
+        <section id="posts" class="page hidden">
             <h2>Latest Posts</h2>
             <div id="posts-container"></div>
+            <div id="loading-spinner" class="spinner hidden">
+                <div class="spinner-circle"></div>
+                <p>Loading posts...</p>
+            </div>
+            <div id="load-more-container" class="text-center">
+                <button id="load-more-btn" class="hidden">Load More Posts</button>
+            </div>
         </section>
 
         <!-- Post Detail Section -->
@@ -57,7 +67,69 @@
             <h3>User Posts</h3>
             <div id="user-posts-container"></div>
         </section>
+
+         <!-- Contact Section  -->
+        <section id="contact" class="page hidden">
+            <h2 id="contact-title">Contact Us</h2>
+            <p class="contact-intro">Have a question or want to get in touch? Send us a message!</p>
+            
+            <form id="contact-form" class="contact-form">
+                <div class="form-field">
+                    <label for="name">Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        placeholder="Enter your name"
+                        pattern="[A-Za-z\s]+"
+                        minlength="2"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="email">Email *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Message</label>
+                    <textarea 
+                        id="message" 
+                        rows="5" 
+                        placeholder="Write your message here..."
+                    ></textarea>
+                </div>
+
+                <div class="form-field checkbox-field">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="confirm" required>
+                        <span>I confirm that I want to send this message *</span>
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">Send Message</button>
+                </div>
+
+                <div id="success-message" class="success-message hidden">
+                    ✅ Message sent successfully! We'll get back to you soon.
+                </div>
+            </form>
+        </section>
     </main>
+
+    <!-- User Profile Modal -->
+    <div id="profile-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-profile-content"></div>
+        </div>
+    </div>
 
     <script src="app.js"></script>
 </body>
