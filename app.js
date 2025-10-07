@@ -144,7 +144,7 @@ function hideSpinner() {
     spinner.classList.add('hidden');
 }
 
-// 7. Function to fetch user data by ID (with caching!)
+// 7. Function to fetch user data by ID
 async function fetchUser(userId) {
     // Check if we already have this user cached
     if (appData.users[userId]) {
@@ -171,7 +171,7 @@ async function fetchUser(userId) {
     }
 }
 
-// 8. Function to display a single post (NOW WITH USERNAMES!)
+// 8. Function to display a single post
 async function displayPost(post) {
     // STEP 1: Get the container where we'll put this post
     const postsContainer = document.getElementById('posts-container');
@@ -191,7 +191,7 @@ async function displayPost(post) {
             `<span class="tag">${tag}</span>`
         ).join('');
         
-        // STEP 4: Build the HTML structure (NOW WITH REAL NAMES!)
+        // STEP 4: Build the HTML structure
         postElement.innerHTML = `
             <h3 class="post-title" data-post-id="${post.id}">${post.title}</h3>
             <div class="post-meta">
@@ -237,7 +237,7 @@ async function displayPost(post) {
 }
 
 // ========================================
-// VIEW NAVIGATION FUNCTIONS
+// HIGHLIGHT NAVIGATION FUNCTIONS
 // ========================================
 
 // 9. Switch between different views (Home, Post Detail, Profile)
@@ -422,7 +422,7 @@ async function viewUserProfile(userId) {
     }
 }
 
-// 12B. Open user profile in modal (NEW!)
+// 12B. Open user profile in modal
 async function openUserProfileModal(userId) {
     const modal = document.getElementById('profile-modal');
     const modalContent = document.getElementById('modal-profile-content');
@@ -549,12 +549,7 @@ async function loadUserPosts(userId) {
 document.addEventListener('DOMContentLoaded', () => {
     // Back button from post detail
     document.getElementById('back-btn').addEventListener('click', () => {
-        showView('home');
-    });
-    
-    // Back button from profile
-    document.getElementById('profile-back-btn').addEventListener('click', () => {
-        showView('home');
+        showView('posts');
     });
 
     // Setup contact form
@@ -593,7 +588,7 @@ function setupModal() {
 }
 
 // ========================================
-// CONTACT FORM - SIMPLE VERSION
+// CONTACT FORM
 // ========================================
 
 function setupContactForm() {
